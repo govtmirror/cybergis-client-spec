@@ -14,6 +14,10 @@ A glossary file is generally a tab delimited TSV file.  However, it can be delim
 
 A glossary file contains the following columns: term and definition.
 
+### Related Specifications
+
+See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
+
 ## Examples
 
 To load a glossary file it first must be linked to in the properties file.
