@@ -65,6 +65,7 @@
 	},
 	"pcodes":
 	[
-		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"}
+		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"},
+		{"level":2,"delimiter":"\t","url":"pcodes/pcodes-admin2.tsv"}
 	]
 }
