@@ -10,6 +10,9 @@ A glossary file describes a glossary of terms and definition. Generally speaking
 
 A glossary file is generally a tab delimited TSV file.  However, it can be delimited in a variety of ways.  The delimiter is set in the properties file.
 
+### Columns
+
+A glossary file contains the following columns: term and definition.
 
 ## Examples
 
