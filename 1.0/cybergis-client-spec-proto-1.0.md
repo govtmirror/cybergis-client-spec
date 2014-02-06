@@ -87,7 +87,7 @@ The type property is a string.  It specifies the type of a layer.  The type can 
 Options
 
 | Type | Alias 1 | Alias 2 | Alias 3 | Alias 4 |
-| ---- | ----  | ---- | ----  | - |
+| ---- | ----    | ----    | ----    | ----    |
 | MapBox | MapBox | Openlayers.Layer.Mapbox  | - | - |
 | OSM | OSM | OpenLayers.Layer.OSM  | OpenStreetMap | - |
 | WMS | WMS | OpenLayers.Layer.WMS  | - | - |
