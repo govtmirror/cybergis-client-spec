@@ -21,6 +21,16 @@ The cartography file (or carto file) describes the cartography for each layer.  
 
 ### Cascading
 
+A general design principal for the CyberGIS clients is cascading.  Many configuration options can be specifed in multiple locations.  For example, the option to decide which non-basemap layers to display (featureLayers), can be specified as a query string parameter, in the HTML document as a HTML5 data attribute, or in the properties file.  Additionally, many options can be specified using different identifiers.  For example, the baselayers can be specified using baselayer or baselayers.  The initialization routing also attempts to infer good fallback values.  The initialization routing also detects and autocorrects conflicting configuration values, such as setting the center outside the max extent.
+
+Although the initialization routine can't compete with the simpliest of hard-coded leaflet maps, through cascading it is possible to configure a feature rich CyberGIS client application with the literal bare-minimum customization that is required.
+
+The usual cascading order is:
+1.  Query String parameter
+2.  HTML5 Data Attribute
+3.  Properties File
+4.  Fallback
+
 ### CyberGIS
 The Humanitarian Information Unit has been developing a sophisticated geographic computing infrastructure referred to as the CyberGIS. The CyberGIS provides highly available, scalable, reliable, and timely geospatial services capable of supporting multiple concurrent projects.  The CyberGIS relies on primarily open source projects, such as PostGIS, GeoServer, GDAL, OGR, and OpenLayers.  The name CyberGIS is dervied from the term geospatial cyberinfrastructure.
 
