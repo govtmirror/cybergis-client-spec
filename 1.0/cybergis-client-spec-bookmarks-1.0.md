@@ -30,21 +30,17 @@ To load a glossary file it first must be linked to in the properties file.
 ### Properties File
 
 ```JSON
-"glossaries":
-[
-	{"name":"glossary","label":"Glossary","delimiter":"\t","url":"glossaries/glossary.tsv"}
-]
+"bookmarks": {"delimiter":"\t","url":"bookmarks/bookmarks.tsv"}
 ```
 
-### Glossary File
+### Bookmarks File
 
-| term  | definition                                                |
-| ---- |:------------------------------------------------------     |
-| CSO   | Bureau of Conflict Stabilization Operations (DOS/CSO)     |
-| DRL   | Bureau of Democracy, Human Rights, and Labor (DOS/DRL)    |
-| FFP   | Office of Food for Peace (USAID/DCHA/FFP)                 |
-| HIU   | Humanitarian Information Unit (DOS/HIU)                   |
-| USG   | United States Government                                  |
+| name | label | type | latitude | longitude | zoom | layer | field | value |
+| ---- | ----  | ---- | ----     | ----      | ---- | ----  | ----  | ----  |
+| full_extent | Full Extent| location | 35.2330 | 38.1318 | 7 | -  | -  | -  |
+| aleppo | Aleppo | feature | - | - | - | syria_pcodes_admin4  | name  | SY020000C1007  |
+| damascus | Damascus | feature | - | - | - | syria_pcodes_admin4  | name  | SY010000C1001  |
+| homs | Homs | feature | - | - | - | syria_pcodes_admin1  | name  | SY04  |
 
 ## Contributing
 
