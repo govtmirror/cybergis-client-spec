@@ -127,7 +127,14 @@ Examples
 
 The projection property is a string.  It specifies the EPSG code of the projection of the map.  It should almost always be set to `"EPSG:900913"`.
 
-Example
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 |  Property 4 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 1 | DOM | mapProjection |
+| 2 | File | projection |
+
+**Example**
 
 `"projection":"EPSG:900913"`
 
