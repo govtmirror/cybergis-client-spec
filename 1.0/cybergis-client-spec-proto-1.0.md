@@ -152,7 +152,9 @@ Example
 
 The select property is a boolean.  It specified whether the layer is selectable.  The CyberGIS client application determines the best selection interaction depending on which feature layer are selectable.  For example, if only one feature layer is selectable, then you can bypass a lot of selection code.
 
-Example
+**Fallback**:`false`
+
+**Example**
 
 `"select":true`
 
