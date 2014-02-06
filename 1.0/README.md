@@ -9,6 +9,15 @@ CyberGIS Client Specification, Version 1.0
 
 - [Carto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md)
 
+ 
+## Examples
+
+- [Properties, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-example-properties-1.0.json)
+
+- [Proto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-example-proto-1.0.json)
+
+- [Carto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-example-carto-1.0.json)
+
 ## Contributing
 
 HIU is currently not accepting pull requests for this repository.
