@@ -27,8 +27,11 @@ Although the initialization routine can't compete with the simpliest of hard-cod
 
 The usual cascading order is:
 1.  Query String parameter
+
 2.  HTML5 Data Attribute
+
 3.  Properties File
+
 4.  Fallback
 
 ### CyberGIS
