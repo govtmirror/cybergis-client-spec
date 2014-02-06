@@ -1,0 +1,299 @@
+Proto Specification, Version 1.0
+================
+
+## Description
+
+The layer prototype file (or protolayer file or proto file) links layer identifiers with (1) metadata and (2) strategy/protocol information for loading layers.
+
+## Specifications
+
+The layer prototype file includes a map of layer identifiers to layer prototypes.  Information is specified at the layer level.  No information is specified at the application level.  A future revision will further abstract layer identifiers with namespaces.
+
+### Blank Configuration
+
+```JSON
+{
+	"layers":
+	{
+	
+	}
+}
+```
+
+### Simple Configuration
+
+```JSON
+{
+	"layers":
+	{
+	  "osm"
+	  {
+	    "name":"OSM",
+	    "classification":"Unclassififed",
+	    "description":"OpenStreetMap is a free, editable map of the whole world.",
+	    "type":"OSM"
+	  },
+	  "incidents":
+	  {
+	    "name":"Incidents",
+	    "classification":"Unclassififed",
+	    "description":"Incidents derived from ...",
+	    "type":"GeoJSON",
+	    "projection":"EPSG:4326",
+	    "minZoom":0,
+	    "maxZoom":8,
+	    "url":"data/incidents.geojson",
+	    "select":true
+	  }
+	}
+}
+```
+
+
+### Properties
+
+The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Bookmarks](#bookmarks),[Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes)
+
+
+#### Element
+
+The element property is a string.  It specifies the DIV that will contain the OpenLayers map.
+
+Example
+
+`"element":"map"`
+
+#### Name
+
+The name property is a string.  It specifies the name of the CyberGIS client application.  The name is used for the page headers, about dialog, and other ways on the page.
+
+Example
+
+`"name":"Demo"`
+
+#### Title
+
+The title property is a string.  It specifies the title of the CyberGIS client application.  The title is used for the page title (read: browser history).
+
+Example
+
+`"title":"Demo - Organization"`
+
+#### Domain
+
+The domain property is a string.  It specifies the domain that the application is on.  Actually, the string should include the protocol + domain (http + example.com).  It should not have a trailing slash.
+
+Example
+
+`"domain":"http://example.com"`
+
+#### Context
+
+The context property is a string.  It specifies the context path that the application is on.  It should have a preceding slash.
+
+Example
+
+`"context":"/cybergis/apps"`
+
+#### Pages
+
+The pages property is an object that contains the page names for the main page, thumbnail page, and embed page.
+
+Example
+
+```JSON
+"pages":
+{
+	"main":"hello-world.html",
+	"thumbnail":"hello-world-thumbnail.html",
+	"embed":"hello-world-embed.html"
+}
+```
+
+#### Classification
+
+The classification property is a string.  It specifies the classification marking of the application.  It does not represent the classification of the application name or metadata.  The property represents the highest classification level of the data contained in the application.
+
+Examples
+
+* `"classification":"Unclassified"`
+* `"classification":"Unclassified//SBU"`
+* `"classification":"Unclassified//FOUO"`
+
+#### Projection
+
+The projection property is a string.  It specifies the EPSG code of the projection of the map.  It should almost always be set to `"EPSG:900913"`.
+
+Example
+
+`"projection":"EPSG:900913"`
+
+#### Zoom
+
+The zoom property is an integer.  It specifies the default zoom level of the application.
+
+Example
+
+`"zoom":7`
+
+#### Minimum Zoom (minZoom)
+
+The minZoom property is an integer.  It specifies the minimum zoom level for the application.  It is most frequently 0.
+
+Example
+
+`"minZoom":0`
+
+#### Maximum Zoom (maxZoom)
+
+The maxZoom property is an integer.  It specifies the maximum zoom level for the application.  It is most frequently 18.
+
+Example
+
+`"maxZoom":18`
+
+#### Resolutions
+
+The resolutions property is an array of floats.  It specifies the resolutions for each zoom level.  This array almost always contains the resolutions for each level of an EPSG:900913 TMS service.
+
+Example
+
+`"resolutions":[156543.03390625,78271.516953125,39135.7584765625,19567.87923828125,9783.939619140625,4891.9698095703125,2445.9849047851562,1222.9924523925781,611.4962261962891,305.74811309814453,152.87405654907226,76.43702827453613,38.218514137268066,19.109257068634033,9.554628534317017,4.777314267158508,2.388657133579254,1.194328566789627,0.5971642833948135]`
+
+#### Controls
+
+The controls property is an object that includes the custom options that will get passed to the map controls, such as search, select, and disclaimer.
+
+Example
+
+```JSON
+"controls":
+{
+	"search":{"mode":"flexible","acLabel":"name_search"},
+	"select":{"stopDown":false},
+	"disclaimer":
+	{
+		"leftText":"Names and boundary representation are not necessarily authoritative.",
+		"middleText":"Names and boundary representation are not necessarily authoritative.<br>Basemap: Copyright <a href=\"http://openstreetmap.org/\">OpenStreetMap</a> contributors",
+		"rightText":"Basemap: Copyright <a href=\"http://openstreetmap.org/\">OpenStreetMap</a> contributors"
+	}
+}
+```
+
+#### Applications (apps)
+
+The apps property is an object that includes descriptions of other web mapping applications, including cybergis client applications.  By specifying here you can jump between applications seamlessly.  For example, in an conflict incidents application, you click on an incident, open a popup, and click on a link within the popup to jump to same location in OpenStreetMap.
+
+Example
+
+```JSON
+"apps":
+[
+	{"name":"hello_world_2","label":"Hello World 2","classification":"Unclassified","description":"","url":{"page":"/cybergis/apps/hello-world-2.html","querystring":"z={z}&lon={x}&lat={y}","precision":4}},
+		
+	{"name":"google","label":"Google Maps","classification":"Unclassified","description":"","url":{"page":"https://maps.google.com/maps?q=","delimiter":",","order":"y,x"}},
+	{"name":"osm","label":"OpenStreetMap","classification":"Unclassified","description":"","url":{"page":"http://www.openstreetmap.org/#map=","delimiter":"/","order":"z,y,x","precision":4}}
+]
+```
+
+#### Wikis
+
+The wikis property is an object that includes descriptions of other applications.  It is not used to enable geographically context sensitive jumps, but is instead used to link to articles in a wiki or other environment.  For example, linking to the wikipedia page on a given city or linking to a source report for an incident.
+
+Example
+
+```JSON
+"wikis":
+[
+	{"name":"wikipedia","label":"Wikipedia","classification":"Unclassified","description":"","url":"http://en.wikipedia.org/wiki/"},
+	{"name":"sharepoint","label":"SharePoint Document Library","classification":"Unclassified//SBU","description":"","url":"http://example.com/sites/default/files/"}
+]
+```
+
+#### Data Sources
+
+The data sources property is an object that includes strategy and protocol information for loading shared external resources.  Resources are specified here if they are used by multiple layers or are not used by the map itself.  Consequently, they only need to be loaded once over the network.
+
+Example
+
+```JSON
+"datasources":
+[
+	{"name":"articles","label":"Articles","type":"hashmap","key":"name","delimiter":"\t","url":"links/articles.tsv"},
+	{"name":"timeline","label":"Timeline","type":"hashmap","key":"entity","delimiter":"\t","url":"links/timeline.tsv"}
+]
+```
+
+#### Bookmarks
+
+The bookmarks property is an object that includes strategy and protocol information for loading spatiotemporal bookmarks.  Bookmarks are shared among users to decrease the amount of time it takes to find a high interest feature, such as the most used border crossing, most populous refugee camp, etc.  The actual location and/or feature information is specified in the bookmarks file.  See the related specification for the bookmarks file [here](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
+
+Example
+
+```JSON
+"bookmarks": {"delimiter":"\t","url":"bookmarks/bookmarks.tsv"}
+```
+
+#### Glossaries
+
+The glossaries property is an array of objects that includes strategy and protocol information for loading glossaries of terms and definitions.  Glossaries are shared among users and are generally accessible through the data popup.  See the related specification for glossary files [here](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md).
+
+Example
+
+```JSON
+"glossaries":
+[
+	{"name":"glossary","label":"Glossary","delimiter":"\t","url":"glossaries/glossary.tsv"}
+],
+```
+
+#### HashMaps
+
+The hashmaps property is a object that includes hashmap keys and values for mapping integer keys to strings.  Additionally, the hashmaps property is first broken down by namespace to faciliate multiple hashmaps.  It can be used for translation or more frequently by decreasing network load.  For example, if you request alot of data about countries, then the WFS will only need to return a single number for each country instead of its name.  Since it is a hashmap, lookup is almost instantaneous once initialized.
+
+Example
+
+```JSON
+"hashmaps":
+{
+	"boundaries":
+	{
+		"countries":
+		[
+			{"id":87,"name":"Jordan"},
+			{"id":81,"name":"Iraq"},
+			{"id":98,"name":"Lebanon"},
+			{"id":171,"name":"Syria"},
+			{"id":180,"name":"Turkey"}
+		]
+	}
+}
+```
+
+#### P-Codes (pcodes)
+
+The P-Codes property is an array of objects that includes strategy and protocol information for loading P-Code attributes.  By separating P-Code attributes from their geometry network load is decreased as you don't need to load the names for a parent administrative district for every one of its child districts.
+
+Example
+
+```JSON
+	"pcodes":
+	[
+		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"},
+		{"level":2,"delimiter":"\t","url":"pcodes/pcodes-admin2.tsv"}
+	]
+```
+
+### Related Specifications
+
+See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
+## Examples
+
+- [Properties, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-example-properties-1.0.json)
+
+## Contributing
+
+HIU is currently not accepting pull requests for this repository.
+
+## License
+This project constitutes a work of the United States Government and is not subject to domestic copyright protection under 17 USC § 105.
