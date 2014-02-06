@@ -1,0 +1,81 @@
+{
+	"layers":
+	{
+		"osm":
+		{
+			"name":"OSM",
+			"classification":"Unclassified",
+			"description":"TBD",
+			"type":"OpenLayers.Layer.OSM"
+		},
+		"incidents":
+		{
+			"name":"Incidents",
+			"classification":"Unclassified",
+			"description":"Incidents are dervied from ....",
+			"type":"soap",
+			"projection":"EPSG:4326",
+			"url":"/sites/ggi/hiu/_vti_bin/lists.asmx",
+			"list":"incidents",
+			"columns":
+			[
+				"Title","Description",
+				"Date Published","Date Entered","Date Incident",
+				"Categories",
+				"Country","State","City","SubCity","Latitude","Longitude",
+				"Fatalities_x0020__x0028_Combatan","Fatalities_x0020__x0028_Non_x002"
+			],
+			"jit":
+			[
+				{
+					"type":"simple",
+					"refresh":{"init":true,"focus":false},
+					"tasks":
+					[
+						{"op":"concat","output":"location","input":["${City}",", ","${State}"]},
+						{"op":"concat","output":"location2","input":["${location}"]},
+						{"op":"concat","output":"location2","input":["${SubCity}"," in ","${location}"],"where":{"op":"!=","field":"SubCity","value":""}},
+
+						{"op":"concat","output":"name","input":["${Title}"," at ","${location2}"]},
+						{"op":"concat","output":"label","input":["${name}"]},
+						{"op":"concat","output":"name_search","input":["${name}"," (Incident)"]},
+						{"op":"concat","output":"title","input":["${name}"]},
+
+						{"op":"strip_fields","fields":["Description","Title","SubCity"],"characters":" '\t\n\""},
+
+						{"op":"split","output":"aCategories","input":"Categories","delimiter":";#"},
+						{"op":"grep","output":"aCategories","input":"aCategories","values":[""],"keep":false},
+						{"op":"join","output":"sCategories","input":"aCategories","delimiter":", "},
+
+						{"op":"parse","output":"Fatalities (Combatants)","input":"Fatalities_x0020__x0028_Combatan","type":"int"},
+						{"op":"parse","output":"Fatalities (Non-Combatants)","input":"Fatalities_x0020__x0028_Non_x002","type":"int"}
+					]
+				}
+			],
+			"select":true
+		},
+		"pcodes_admin1":
+		{
+			"name":"P-Codes (Admin 1)",
+			"classification":"Unclassified",
+			"description":"TBD",
+			"type":"GeoJSON",
+			"projection":"EPSG:4326",
+			"minZoom":0,"maxZoom":8,
+			"url":"pcodes/pcodes-admin1-polygons.geojson",
+			"jit":
+			[
+				{
+					"type":"simple",
+					"refresh":{"init":true,"focus":false},
+					"tasks":
+					[
+						{"op":"concat","output":"label","input":[{"name":"name","type":"pcode","pcode":{"level":1,"label":"name"}}]},
+						{"op":"concat","output":"name_search","input":["${label}"," (","${name}",")"]}
+					]								
+				}
+			],
+			"select": true
+		}
+	}
+}
