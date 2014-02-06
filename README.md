@@ -8,7 +8,7 @@ The Humanitarian Information Unit has been developing a sophisticated geographic
 
 This repository contains specifications for CyberGIS client applications.  These specifications are currently only implemented for OpenLayers 2.13.
 
-CyberGIS Client applications are configured using three file: a properties file, a layer prototype file (proto file), and a cartography file (carto file). The specifications for each of these files should be compatabile for each version number.
+CyberGIS Client applications are configured using three file: (a properties file)[#properties], a layer prototype file (proto file), and a cartography file (carto file). The specifications for each of these files should be compatabile for each version number.
 
 ### Cascading
 
@@ -25,6 +25,8 @@ The usual cascading order is:
 3.  Properties File
 
 4.  Fallback
+
+## Files
 
 ### Properties
 
