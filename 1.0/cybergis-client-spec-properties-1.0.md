@@ -69,7 +69,6 @@ The name property is a string.  It specifies the name of the CyberGIS client app
 | 1 | Query String | n | name |
 | 2 | DOM |
 | 3 | File | name |
-| 4 | Fallback |
 
 **Example**
 
@@ -144,7 +143,8 @@ The zoom property is an integer.  It specifies the default zoom level of the app
 | 2 | DOM | mapZoom |
 | 3 | File | name |
 | 4 | Base Layer | minZoom |
-| 5 | Fallback | 3 |
+
+**Fallback**: 3
 
 **Example**
 
@@ -363,7 +363,8 @@ The legend layers property is an array of strings that specifies the order of la
 | 1 | Query String | legendLayer | legendLayers |
 | 2 | DOM | mapLegendLayers |
 | 3 | File | legendLayers |
-| 4 | Fallback | [Feature Layers](#feature-layers) |
+
+**Fallback**: [Feature Layers](#feature-layers)
 
 **Example**
 
