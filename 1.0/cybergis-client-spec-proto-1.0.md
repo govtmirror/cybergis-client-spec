@@ -82,9 +82,23 @@ Example
 
 #### Type
 
-The type property is a string.  It specifies the type of a layer.  The type can be a variety of options.
+The type property is a string.  It specifies the type of a layer.  The type can be a variety of options.  The options are aliased and case insensitive.  For example, you can specify a MapBox Layer with "Openlayers.Layer.Mapbox" or "MapBox".
 
 Options
+
+| Type | Alias 1 | Alias 2 | Alias 3 | Alias 4 |
+| ---- | ----  | ---- | ----  | - |
+| MapBox | MapBox | Openlayers.Layer.Mapbox  | - | - |
+| OSM | OSM | OpenLayers.Layer.OSM  | OpenStreetMap | - |
+| WMS | WMS | OpenLayers.Layer.WMS  | - | - |
+| ArcGIS | ArcGIS | OpenLayers.Layer.ArcGIS93Rest  | - | - |
+| GeoJSON | GeoJSON | OpenLayers.Layer.GeoJSON  | - | - |
+| KML | KML | OpenLayers.Layer.KML  | - | - |
+| TSV | TSV | -  | - | - |
+| Placeholder | Placeholder | OpenLayers.Layer.Placeholder  | - | - |
+| SharePoint | SharePoint | OpenLayers.Layer.SOAP  | SOAP | - |
+| Vector | Vector | OpenLayers.Layer.Vector  | - | - |
+| TimeVector | TimeVector | OpenLayers.Layer.TimeVector  | - | - |
 
 Examples
 
@@ -96,8 +110,8 @@ The projection property is a string.  It specifies the EPSG code of the projecti
 
 Examples
 
-`"projection":"EPSG:4326"`
-`"projection":"EPSG:900913"`
+- `"projection":"EPSG:4326"`
+- `"projection":"EPSG:900913"`
 
 #### Minimum Zoom (minZoom)
 
