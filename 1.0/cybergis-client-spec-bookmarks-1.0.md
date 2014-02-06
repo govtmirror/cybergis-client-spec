@@ -7,10 +7,6 @@ A bookmarks file describes spatiotemporal bookmarks. The bookmarks file usually 
 
 ## Specification
 
-### Related Specifications
-
-See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
-
 A bookmarks file is generally a tab delimited TSV file.  However, it can be delimited in a variety of ways.  The delimiter is set in the properties file.
 
 A boookmarks file can contain two types of bookmarks: location and feature.
@@ -26,6 +22,10 @@ Feature bookmarks jump the user to a given feature.  If a location and/or zoom i
 ### Columns
 
 A bookmarks file contains the following columns: name, label, type, latitude, longitude, zoom, layer, field, and value.
+
+### Related Specifications
+
+See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
 
 ## Examples
 
