@@ -21,7 +21,8 @@ To load a glossary file it first must be linked to in the properties file.
 "glossaries":
 [
 	{"name":"glossary","label":"Glossary","delimiter":"\t","url":"glossaries/glossary.tsv"}
-],
+]
+```
 
 ### Glossary File
 
