@@ -3,7 +3,7 @@ cybergis-client-spec
 
 ## Description
 
-This repository contains specifications for CyberGIS clients.  These specifications are currently only implemented for OpenLayers 2.13.
+This repository contains specifications for CyberGIS client applications.  These specifications are currently only implemented for OpenLayers 2.13.
 
 CyberGIS Client applications are configured using three file: a properties file, a layer prototype file (proto file), and a cartography file (carto file). The specifications for each of these files should be compatabile for each version number.
 
