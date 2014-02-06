@@ -84,7 +84,7 @@ Example
 
 The type property is a string.  It specifies the type of a layer.  The type can be a variety of options.  The options are aliased and case insensitive.  For example, you can specify a MapBox Layer with "Openlayers.Layer.Mapbox" or "MapBox".
 
-Options
+##### Options
 
 | Type | Alias 1 | Alias 2 | Alias 3 | Alias 4 |
 | ---- | ----    | ----    | ----    | ----    |
