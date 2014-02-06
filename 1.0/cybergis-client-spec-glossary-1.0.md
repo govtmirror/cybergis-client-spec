@@ -26,18 +26,13 @@ To load a glossary file it first must be linked to in the properties file.
 
 ### Glossary File
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-
 | term  | definition                                                |
-| ---- |:--------------------------------------------------------- |
+| ---- |:------------------------------------------------------     |
 | CSO   | Bureau of Conflict Stabilization Operations (DOS/CSO)     |
 | DRL   | Bureau of Democracy, Human Rights, and Labor (DOS/DRL)    |
 | FFP   | Office of Food for Peace (USAID/DCHA/FFP)                 |
-
-
+| HIU   | Humanitarian Information Unit (DOS/HIU)                   |
+| USG   | United States Government                                  |
 
 ## Contributing
 
