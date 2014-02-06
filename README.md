@@ -13,7 +13,7 @@ The properties file is used to configue which layers and controls to show on the
 
 ### Proto
 
-The layer prototype file (or protolayer file or proto file) links layer identifiers with (1) metadata, and (2) strategy/protocol information for loading layers.
+The layer prototype file (or protolayer file or proto file) links layer identifiers with (1) metadata and (2) strategy/protocol information for loading layers.
 
 ### Carto
 
