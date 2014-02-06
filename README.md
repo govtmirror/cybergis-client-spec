@@ -8,7 +8,7 @@ The Humanitarian Information Unit has been developing a sophisticated geographic
 
 This repository contains specifications for CyberGIS client applications.  These specifications are currently only implemented for OpenLayers 2.13.
 
-CyberGIS Client applications are configured using three file: (a properties file)[#properties], a layer prototype file (proto file), and a cartography file (carto file). The specifications for each of these files should be compatabile for each version number.
+CyberGIS Client applications are configured using three files: [a properties file](#properties), [a layer prototype file (proto file)](#proto), and [a cartography file (carto file)](#carto).  A CyberGIS client application may also use a few optional files: 0 or 1 [bookmarks files](#bookmarks), 0 or more [glossary files](#glossary), etc.  The specifications for each of these files should be compatabile for each version number.
 
 ### Cascading
 
@@ -39,6 +39,10 @@ The layer prototype file (or protolayer file or proto file) links layer identifi
 ### Carto
 
 The cartography file (or carto file) describes the cartography for each layer.  Additionally, the carto file describes the visual representation of a layer within a chart and box.  Generally speaking, any visualization of a layer is described in the carto file.
+
+### Bookmarks
+
+A bookmarks file describes spatiotemporal bookmarks.  The bookmarks file usually contains the highest interest features or locations.
 
 ### Glossary
 
