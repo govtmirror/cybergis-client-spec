@@ -63,6 +63,6 @@
 	},
 	"pcodes":
 	[
-		{"level":1,"delimiter":"\t","url":"pcodes/hello-world-pcodes-admin1.tsv"}
+		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"}
 	]
 }
