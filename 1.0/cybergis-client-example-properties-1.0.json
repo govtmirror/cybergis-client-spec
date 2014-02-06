@@ -41,6 +41,8 @@
 	],
 	"datasources":
 	[
+		{"name":"articles","label":"Articles","type":"hashmap","key":"name","delimiter":"\t","url":"links/articles.tsv"},
+		{"name":"timeline","label":"Timeline","type":"hashmap","key":"entity","delimiter":"\t","url":"links/timeline.tsv"}
 	],
 	"bookmarks": {"delimiter":"\t","url":"bookmarks/hello-world-bookmarks.tsv"},
 	"glossaries":
