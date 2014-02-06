@@ -23,7 +23,7 @@ The cartography file (or carto file) describes the cartography for each layer.  
 
 A general design principal for the CyberGIS clients is cascading.  Many configuration options can be specifed in multiple locations.  For example, the option to decide which non-basemap layers to display (featureLayers), can be specified as a query string parameter, in the HTML document as a HTML5 data attribute, or in the properties file.  Additionally, many options can be specified using different identifiers.  For example, the baselayers can be specified using baselayer or baselayers.  The initialization routing also attempts to infer good fallback values.  The initialization routing also detects and autocorrects conflicting configuration values, such as setting the center outside the max extent.
 
-Although the initialization routine can't compete with the simpliest of hard-coded leaflet maps, through cascading it is possible to configure a feature rich CyberGIS client application with the literal bare-minimum customization that is required.
+Although the initialization routine can't compete with the simpliest of hard-coded leaflet maps in startup time, through cascading it is possible to configure a feature rich CyberGIS client application with the literal bare-minimum customization that is required.
 
 The usual cascading order is:
 1.  Query String parameter
