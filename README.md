@@ -10,11 +10,11 @@ The Humanitarian Information Unit has been developing a sophisticated geographic
 
 ## Specifications
 
-### 1.0
+### [1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/)
 
 Stable version
 
-### 1.1
+### [1.1](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.1/)
 
 Development version
 
