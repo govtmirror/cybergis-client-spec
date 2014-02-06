@@ -26,6 +26,7 @@ A general design principal for the CyberGIS clients is cascading.  Many configur
 Although the initialization routine can't compete with the simpliest of hard-coded leaflet maps in startup time, through cascading it is possible to configure a feature rich CyberGIS client application with the literal bare-minimum customization that is required.
 
 The usual cascading order is:
+
 1.  Query String parameter
 
 2.  HTML5 Data Attribute
