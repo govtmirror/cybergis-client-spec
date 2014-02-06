@@ -8,6 +8,10 @@ The properties file is used to configue which layers and controls to show on the
 
 ## Specifications
 
+### Related Specifications
+
+See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
+
 ### Blank Configuration
 
 ```JSON
@@ -41,7 +45,7 @@ The properties file is used to configue which layers and controls to show on the
 ```
 ### Properties
 
-The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes)
+The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Bookmarks](#bookmarks),[Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes)
 
 
 #### Element
@@ -215,7 +219,7 @@ Example
 
 #### Bookmarks
 
-The bookmarks property is an object that includes strategy and protocol information for loading spatiotemporal bookmarks.  Bookmarks are shared among users to decrease the amount of time it takes to find a high interest feature, such as the most used border crossing, most populous refugee camp, etc.  The actual location and/or feature information is specified in the bookmarks file.
+The bookmarks property is an object that includes strategy and protocol information for loading spatiotemporal bookmarks.  Bookmarks are shared among users to decrease the amount of time it takes to find a high interest feature, such as the most used border crossing, most populous refugee camp, etc.  The actual location and/or feature information is specified in the bookmarks file.  See the related specification for the bookmarks file [here](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
 
 Example
 
@@ -225,7 +229,7 @@ Example
 
 #### Glossaries
 
-The glossaries property is an array of objects that includes strategy and protocol information for loading glossaries of terms and definitions.  Glossaries are shared among users and are generally accessible through the data popup.
+The glossaries property is an array of objects that includes strategy and protocol information for loading glossaries of terms and definitions.  Glossaries are shared among users and are generally accessible through the data popup.  See the related specification for glossary files [here](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md).
 
 Example
 
