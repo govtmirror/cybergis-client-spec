@@ -52,7 +52,13 @@ The layer prototype file includes a map of layer identifiers to layer prototypes
 
 ### Properties
 
-The following properties are explained below: [Name](#name), [Classification](#classification), [Description](#description), [Type](#type), [Projection](#projection), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [URL](#url),  [Select](#select)
+**General**: [Name](#name), [Classification](#classification), [Description](#description), [Type](#type), [Projection](#projection), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [URL](#url),  [Select](#select)
+
+**MapBox**: [Layer Name](#layer-name)
+
+**SharePoint**: [List](#list), [Columns](#columns)
+
+**Just-in-Time**: [Just-in-Time](#just-in-time)
 
 #### Name
 
@@ -84,7 +90,7 @@ Example
 
 The type property is a string.  It specifies the type of a layer.  The type can be a variety of options.  The options are aliased and case insensitive.  For example, you can specify a MapBox Layer with "Openlayers.Layer.Mapbox" or "MapBox".
 
-Options
+**Options**
 
 | Type | Alias 1 | Alias 2 | Alias 3 | Alias 4 |
 | ---- | ----    | ----    | ----    | ----    |
@@ -144,6 +150,56 @@ The select property is a boolean.  It specified whether the layer is selectable.
 Example
 
 `"select":true`
+
+#### Layer Name
+
+The layer name property is a string.  It specifies MapBox layers using a comma-separted list of layers.  The layers are composited into tiles.
+
+**Example**
+
+```JSON
+"layername": "mapbox.world-blank-light,hiu.lsib-dark"
+```
+
+#### List
+
+The list property is a string.  It specifies the SharePoint List to load for the layer.  The OpenLayers.Format.SOAP class that reads in the data parses geometry using the following cascading rules.
+
+**Cascading**
+
+OpenLayers.Format.SOAP checks (1) first for a comma separated latlon pair, (2) then for a comma separated lonlat pair, (3) then for latitude and longitude as separate columns, (4) then for a comma separated yx pair, (5) then for a comma separated xy pair, and (4) then for y and x and separate columns
+
+| Order | Level | Column 1 | Column 2 | Column 3 | Column 4 |  Column 5 |  Column 6 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |   ---- |   ---- |
+| 1 | LatLon | latlon | latlong | lat__lon | lat long |
+| 2 | LonLat | lonlat | longlat | long_lat | long lat |
+| 3 | Lat | lat | latitude | lat_dd | latitude_dd |
+| 3 | Lon | lon | long | longitude | lon_dd | long_dd | longitude_dd |
+| 4 | YX | yx | y_x | y x |
+| 5 | XY | xy | x_y | x y |
+| 6 | Y | y |
+| 6 | X | x |
+
+**Example**
+
+```JSON
+"list": "incidents"
+```
+
+#### Columns
+
+The columns property is an array of strings.  It specifies the columns to load from a SharePoint List.  If columns is not specified, then the results of the SOAP call are not consistent between SharePoint versions.  It is highly advised to set this property.
+
+**Example**
+
+```JSON
+"columns":
+[
+	"Title","Description","Date Published","Date Entered","Date Incident",
+	"Country","State","City","SubCity","Latitude","Longitude",
+	"Fatalities (Combatants)","Fatalities (Non-Combatants)"
+]
+```
 
 ### Related Specifications
 
