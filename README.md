@@ -8,11 +8,21 @@ This repository contains specifications for CyberGIS clients.  These specificati
 ### CyberGIS
 The Humanitarian Information Unit has been developing a sophisticated geographic computing infrastructure referred to as the CyberGIS. The CyberGIS provides highly available, scalable, reliable, and timely geospatial services capable of supporting multiple concurrent projects.  The CyberGIS relies on primarily open source projects, such as PostGIS, GeoServer, GDAL, OGR, and OpenLayers.  The name CyberGIS is dervied from the term geospatial cyberinfrastructure.
 
-## Specifications
+## Specification
 
-### 1.0
+### [CyberGIS Client, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/)
 
-### 1.1
+Stable version
+
+- [Properties, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md)
+
+- [Proto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md)
+
+- [Carto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md)
+
+### [1.1](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.1/)
+
+Development version
 
 Coming soon!
 
