@@ -41,13 +41,8 @@ The properties file is used to configue which layers and controls to show on the
 ```
 ### Properties
 
-The following properties are specified in the properties file.
-- [Element](#element)
-- [Name](#name)
-- [Title](#title)
-- [Domain](#context)
-- [Context](#context)
-- [Pages](#pages)
+The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources),
+
 
 #### Element
 
@@ -122,6 +117,101 @@ Example
 
 `"projection":"EPSG:900913"`
 
+#### Zoom
+
+The zoom property is an integer.  It specifies the default zoom level of the application.
+
+Example
+
+`"zoom":7`
+
+#### Minimum Zoom (minZoom)
+
+The minZoom property is an integer.  It specifies the minimum zoom level for the application.  It is most frequently 0.
+
+Example
+
+`"minZoom":0`
+
+#### Maximum Zoom (maxZoom)
+
+The maxZoom property is an integer.  It specifies the maximum zoom level for the application.  It is most frequently 18.
+
+Example
+
+`"maxZoom":18`
+
+#### Resolutions
+
+The resolutions property is an array of floats.  It specifies the resolutions for each zoom level.  This array almost always contains the resolutions for each level of an EPSG:900913 TMS service.
+
+Example
+
+`"resolutions":[156543.03390625,78271.516953125,39135.7584765625,19567.87923828125,9783.939619140625,4891.9698095703125,2445.9849047851562,1222.9924523925781,611.4962261962891,305.74811309814453,152.87405654907226,76.43702827453613,38.218514137268066,19.109257068634033,9.554628534317017,4.777314267158508,2.388657133579254,1.194328566789627,0.5971642833948135]`
+
+#### Controls
+
+The controls property is an object that includes the custom options that will get passed to the map controls, such as search, select, and disclaimer.
+
+Example
+
+```JSON
+"controls":
+{
+	"search":{"mode":"flexible","acLabel":"name_search"},
+	"select":{"stopDown":false},
+	"disclaimer":
+	{
+		"leftText":"Names and boundary representation are not necessarily authoritative.",
+		"middleText":"Names and boundary representation are not necessarily authoritative.<br>Basemap: Copyright <a href=\"http://openstreetmap.org/\">OpenStreetMap</a> contributors",
+		"rightText":"Basemap: Copyright <a href=\"http://openstreetmap.org/\">OpenStreetMap</a> contributors"
+	}
+}
+```
+
+#### Applications (apps)
+
+The apps property is an object that includes descriptions of other web mapping applications, including cybergis client applications.  By specifying here you can jump between applications seamlessly.  For example, in an conflict incidents application, you click on an incident, open a popup, and click on a link within the popup to jump to same location in OpenStreetMap.
+
+Example
+
+```JSON
+"apps":
+[
+	{"name":"hello_world_2","label":"Hello World 2","classification":"Unclassified","description":"","url":{"page":"/cybergis/apps/hello-world-2.html","querystring":"z={z}&lon={x}&lat={y}","precision":4}},
+		
+	{"name":"google","label":"Google Maps","classification":"Unclassified","description":"","url":{"page":"https://maps.google.com/maps?q=","delimiter":",","order":"y,x"}},
+	{"name":"osm","label":"OpenStreetMap","classification":"Unclassified","description":"","url":{"page":"http://www.openstreetmap.org/#map=","delimiter":"/","order":"z,y,x","precision":4}}
+]
+```
+
+#### Wikis
+
+The wikis property is an object that includes descriptions of other applications.  It is not used to enable geographically context sensitive jumps, but is instead used to link to articles in a wiki or other environment.  For example, linking to the wikipedia page on a given city or linking to a source report for an incident.
+
+Example
+
+```JSON
+"wikis":
+[
+	{"name":"wikipedia","label":"Wikipedia","classification":"Unclassified","description":"","url":"http://en.wikipedia.org/wiki/"},
+	{"name":"sharepoint","label":"SharePoint Document Library","classification":"Unclassified//SBU","description":"","url":"http://example.com/sites/default/files/"}
+]
+```
+
+#### Data Sources
+
+The data sources property is an object that includes strategy and protocol information for loading shared external resources.  Resources are specified here if they are used by multiple layers or are not used by the map.  Consequently, they only need to be loaded once over the network.
+
+Example
+
+```JSON
+"datasources":
+[
+	{"name":"articles","label":"Articles","type":"hashmap","key":"name","delimiter":"\t","url":"links/articles.tsv"},
+	{"name":"timeline","label":"Timeline","type":"hashmap","key":"entity","delimiter":"\t","url":"links/timeline.tsv"}
+]
+```
 
 ## Examples
 
