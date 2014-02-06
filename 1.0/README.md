@@ -13,6 +13,8 @@ CyberGIS Client Specification, Version 1.0
 
 ### Optional
 
+- [Just-in-Time, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-jit-1.0.md)
+
 - [Glossary, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md)
 
 - [Bookmarks, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md)
