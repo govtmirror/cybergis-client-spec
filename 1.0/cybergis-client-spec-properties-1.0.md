@@ -36,13 +36,19 @@ The properties file is used to configue which layers and controls to show on the
 	"bookmarks":{},
 	"glossaries":[],
 	"hashmaps":{},
-	"pcodes":[]
+	"pcodes":[],
+	
+	"baseLayers":[],
+	"featureLayers":[],
+	"searchLayers":[],
+	"legendLayers":[]
 }
 ```
 ### Properties
 
-The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Bookmarks](#bookmarks),[Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes)
+**General**: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Bookmarks](#bookmarks),[Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes),
 
+**Layers**: [Base Layers](#base-layers),  [Feature Layers](#feature-layers), [Search Layers](#search-layers),  [Legend Layers](#legend-layers),  [Box Layers](#box-layers),  [Chart Layers](#chart-layers)
 
 #### Element
 
@@ -56,16 +62,16 @@ Example
 
 The name property is a string.  It specifies the name of the CyberGIS client application.  The name is used for the page headers, about dialog, and other ways on the page.
 
-Cascading
+**Cascading**
 
-| Order | Type | Property 1 | Property 2 | Property 3 |
-| ---- | ---- | ---- | ---- | ---- |
+| Order | Level | Property 1 | Property 2 | Property 3 |  Property 4 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | Query String | n | name |
 | 2 | DOM |
 | 3 | File | name |
 | 4 | Fallback |
 
-Example
+**Example**
 
 `"name":"Demo"`
 
@@ -130,7 +136,17 @@ Example
 
 The zoom property is an integer.  It specifies the default zoom level of the application.
 
-Example
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | q | query | z | zoom |
+| 2 | DOM | mapZoom |
+| 3 | File | name |
+| 4 | Base Layer | minZoom |
+| 5 | Fallback | 3 |
+
+**Example**
 
 `"zoom":7`
 
@@ -280,6 +296,115 @@ Example
 		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"},
 		{"level":2,"delimiter":"\t","url":"pcodes/pcodes-admin2.tsv"}
 	]
+```
+
+#### Base Layers
+
+The base layers property is an array of strings that specifies which layers to use as base layers.  Base layers are non-interactive and are not-included in the legend, search, or any other interactive controls.  For example, OSM, MapBox, and imagery are base layers.  GeoJSON, KML, and WFS layers are not base layers.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | bl | baseLayer | baseLayers |
+| 2 | DOM | mapBaseLayer | mapBaseLayers
+| 3 | File | baseLayers |
+
+**Example**
+
+```JSON
+"baseLayers": ["osm"]
+```
+
+#### Feature Layers
+
+The feature layers property is an array of strings that specifies which layers to use as feature layers.  Feature layers are interactive and are eligible for use in the legend, search, or any other interactive controls.  For example, GeoJSON, KML, and WFS layers are feature layers.  OSM, MapBox, and imagery layers are not feature layers.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | fl | featureLayer | featureLayers | layers |
+| 2 | DOM | mapFeatureLayers | featureLayers
+| 3 | File | featureLayers |
+
+**Example**
+
+```JSON
+"featureLayers": ["incidents"]
+```
+
+#### Search Layers
+
+The search layers property is an array of strings that specifies which layers are searchable in the search control.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | sl | searchLayer | searchLayers | layers |
+| 2 | DOM | mapSearchLayers |
+| 3 | File | searchLayers |
+
+**Example**
+
+```JSON
+"searchLayers": ["incidents"]
+```
+
+#### Legend Layers
+
+The legend layers property is an array of strings that specifies the order of layers in the legend from top to bottom.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | legendLayer | legendLayers |
+| 2 | DOM | mapLegendLayers |
+| 3 | File | legendLayers |
+| 4 | Fallback | [Feature Layers](#feature-layers) |
+
+**Example**
+
+```JSON
+"legendLayers": ["incidents"]
+```
+
+#### Box Layers
+
+The box layers property is (1) a string or (2) an array of strings that specifies the layer(s) to use in the box control.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | boxLayers | boxLayer |
+| 2 | DOM | mapBoxLayers | mapBoxLayer |
+| 3 | File | boxLayers | boxLayer |
+
+**Example**
+
+```JSON
+"boxLayer": "incidents"
+```
+
+#### Chart Layers
+
+The chart layers property is either (1) a string or (2) an array of strings that specifies the layer(s) to use in the chart control.
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | chartLayers | chartLayer |
+| 2 | DOM | mapChartLayers | mapChartLayer |
+| 3 | File | chartLayers | chartLayer |
+
+**Example**
+
+```JSON
+"chartLayer": "incidents"
 ```
 
 ### Related Specifications
