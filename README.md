@@ -12,7 +12,11 @@ The Humanitarian Information Unit has been developing a sophisticated geographic
 
 ### 1.0
 
+Stable version
+
 ### 1.1
+
+Development version
 
 Coming soon!
 
