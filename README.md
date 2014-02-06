@@ -13,7 +13,9 @@ The Humanitarian Information Unit has been developing a sophisticated geographic
 ### [1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/)
 
 [Properties Specification, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md)
+
 [Proto Specification, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md)
+
 [Carto Specification, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md)
 
 Stable version
