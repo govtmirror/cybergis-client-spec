@@ -41,7 +41,7 @@ The properties file is used to configue which layers and controls to show on the
 ```
 ### Properties
 
-The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources),
+The following properties are explained below: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes)
 
 
 #### Element
@@ -201,7 +201,7 @@ Example
 
 #### Data Sources
 
-The data sources property is an object that includes strategy and protocol information for loading shared external resources.  Resources are specified here if they are used by multiple layers or are not used by the map.  Consequently, they only need to be loaded once over the network.
+The data sources property is an object that includes strategy and protocol information for loading shared external resources.  Resources are specified here if they are used by multiple layers or are not used by the map itself.  Consequently, they only need to be loaded once over the network.
 
 Example
 
@@ -211,6 +211,66 @@ Example
 	{"name":"articles","label":"Articles","type":"hashmap","key":"name","delimiter":"\t","url":"links/articles.tsv"},
 	{"name":"timeline","label":"Timeline","type":"hashmap","key":"entity","delimiter":"\t","url":"links/timeline.tsv"}
 ]
+```
+
+#### Bookmarks
+
+The bookmarks property is an object that includes strategy and protocol information for loading spatiotemporal bookmarks.  Bookmarks are shared among users to decrease the amount of time it takes to find a high interest feature, such as the most used border crossing, most populous refugee camp, etc.  The actual location and/or feature information is specified in the bookmarks file.
+
+Example
+
+```JSON
+"bookmarks": {"delimiter":"\t","url":"bookmarks/bookmarks.tsv"}
+```
+
+#### Glossaries
+
+The glossaries property is an array of objects that includes strategy and protocol information for loading glossaries of terms and definitions.  Glossaries are shared among users and are generally accessible through the data popup.
+
+Example
+
+```JSON
+"glossaries":
+[
+	{"name":"glossary","label":"Glossary","delimiter":"\t","url":"glossaries/glossary.tsv"}
+],
+```
+
+#### HashMaps
+
+The hashmaps property is a object that includes hashmap keys and values for mapping integer keys to strings.  Additionally, the hashmaps property is first broken down by namespace to faciliate multiple hashmaps.  It can be used for translation or more frequently by decreasing network load.  For example, if you request alot of data about countries, then the WFS will only need to return a single number for each country instead of its name.  Since it is a hashmap, lookup is almost instantaneous once initialized.
+
+Example
+
+```JSON
+"hashmaps":
+{
+	"boundaries":
+	{
+		"countries":
+		[
+			{"id":87,"name":"Jordan"},
+			{"id":81,"name":"Iraq"},
+			{"id":98,"name":"Lebanon"},
+			{"id":171,"name":"Syria"},
+			{"id":180,"name":"Turkey"}
+		]
+	}
+}
+```
+
+#### P-Codes (pcodes)
+
+The P-Codes property is an array of objects that includes strategy and protocol information for loading P-Code attributes.  By separating P-Code attributes from their geometry network load is decreased as you don't need to load the names for a parent administrative district for every one of its child districts.
+
+Example
+
+```JSON
+	"pcodes":
+	[
+		{"level":1,"delimiter":"\t","url":"pcodes/pcodes-admin1.tsv"},
+		{"level":2,"delimiter":"\t","url":"pcodes/pcodes-admin2.tsv"}
+	]
 ```
 
 ## Examples
