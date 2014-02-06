@@ -94,7 +94,7 @@ Options
 | ArcGIS | ArcGIS | OpenLayers.Layer.ArcGIS93Rest  | - | - |
 | GeoJSON | GeoJSON | OpenLayers.Layer.GeoJSON  | - | - |
 | KML | KML | OpenLayers.Layer.KML  | - | - |
-| TSV | TSV | -  | - | - |
+| TSV | TSV | OpenLayers.Layer.TSV  | - | - |
 | Placeholder | Placeholder | OpenLayers.Layer.Placeholder  | - | - |
 | SharePoint | SharePoint | OpenLayers.Layer.SOAP  | SOAP | - |
 | Vector | Vector | OpenLayers.Layer.Vector  | - | - |
