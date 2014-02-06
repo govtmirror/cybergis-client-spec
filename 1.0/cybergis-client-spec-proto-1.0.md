@@ -208,6 +208,32 @@ The columns property is an array of strings.  It specifies the columns to load f
 ]
 ```
 
+#### Just-in-Time
+
+The just-in-time (or jit) property is an array of objects.  It is used for just-in-time "compilation" of layers.  Please see the Just-in-Time specification for more details [here]().
+
+**Example**
+
+```JSON
+"jit":
+[
+	{
+		"type":"simple",
+		"refresh":{"init":true,"focus":false},
+		"tasks":
+		[
+			{"op":"concat","output":"location","input":["${City}",", ","${State}"]},
+			{"op":"concat","output":"title","input":["${name}"," (","Incident",")"]},
+			
+			{"op":"strip_fields","fields":["Description","Title","SubCity"],"characters":" '\t\n\""},
+			
+			{"op":"split","output":"categories_2","input":"categories","delimiter":","},
+			{"op":"grep","output":"categories_3","input":"categories_2","values":["Extrajudicial Killing"],"keep":false}
+		]
+	}
+]
+```
+
 ### Related Specifications
 
 See the related specifications for: [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md), [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md), [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md), and [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md).
