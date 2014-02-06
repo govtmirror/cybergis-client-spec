@@ -210,7 +210,7 @@ The columns property is an array of strings.  It specifies the columns to load f
 
 #### Just-in-Time
 
-The just-in-time (or jit) property is an array of objects.  It is used for just-in-time "compilation" of layers.  Please see the Just-in-Time specification for more details [here]().
+The just-in-time (or jit) property is an array of objects.  It is used for just-in-time "compilation" of layers.  Please see the Just-in-Time specification for more details [here](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-jit-1.0.md).
 
 **Example**
 
