@@ -123,7 +123,9 @@ Examples
 
 The minZoom property is an integer.  It specifies the minimum zoom level for the layer.  It is most frequently 0.
 
-Example
+**Fallback**: [Map Minimum Zoom](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md#minimum-zoom-minzoom)
+
+**Example**
 
 `"minZoom":0`
 
@@ -131,7 +133,10 @@ Example
 
 The maxZoom property is an integer.  It specifies the maximum zoom level for the layer.  It is most frequently 18.
 
-Example
+**Fallback**: [Map Maximum Zoom](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md#maximum-zoom-maxzoom)
+
+**Example**
+
 
 `"maxZoom":18`
 
