@@ -1,0 +1,218 @@
+{
+	"layers":
+	{
+		"hello_world_pcodes_admin1":
+		{
+			"style":
+			{
+				"intents":
+				{
+					"default":
+					{
+						"templates":"core:pcodes, core:label_pcode",
+						"properties":
+						{
+							"label": "",
+							"fillOpacity":0,
+							"strokeOpacity":0,
+							"fontSize":"14px",
+							"fontWeight":"bold",
+							"fontFamily":"helvetica"
+						}
+					},
+					"select":
+					{
+						"templates":"core:pcodes",
+						"properties":
+						{
+							"label": "${label}",
+		
+							"strokeWidth":4,
+							"strokeColor": "blue",
+
+							"fillColor": "blue",
+							"fillOpacity":0.2
+						}
+					},
+					"close":
+					{
+						"templates":"core:close"
+					}
+				}
+			},
+			"classifications":
+			[
+				{
+					"type":"single",
+					"field": "hover",
+					"value":"on",
+					"style":
+					{
+						"label": "${label}",
+
+						"strokeOpacity":0.6,
+						"strokeWidth":4,
+						"strokeColor": "#1b9e77",
+
+						"fillColor": "#1b9e77",
+						"fillOpacity":0.2,
+
+						"labelOutlineColor": "#1b9e77"
+					}
+				}
+			]
+
+		},
+		"incidents":
+		{
+			"style":
+			{
+				"intents":
+				{
+					"default":
+					{
+						"templates":"core:incident",
+						"properties":
+						{
+							"pointRadius":8,
+							"strokeOpacity":1.0,
+							"fillOpacity":1.0
+						}
+					},
+					"wheel":
+					{
+						"templates":"core:incident_wheel",
+						"properties":
+						{
+							"pointRadius":8,
+							"strokeOpacity":1.0,
+							"fillOpacity":1.0
+						}
+					},
+					"select":
+					{
+						"templates":"core:incident_select",
+						"properties":
+						{
+							"pointRadius":8,
+							"strokeOpacity":1.0,
+							"fillOpacity":0.4
+						}
+					},
+					"close":
+					{
+						"templates":"core:close",
+						"properties":
+						{
+							"pointRadius":8
+						}
+					}
+				}
+			},
+			"legend":{"label":"Incidents","symbol":"circle","radius":10},
+			"popup":
+			{
+				"type":"advanced",
+				"title":
+				{
+					"base":"Title",
+					"suffix":" (Incident)"
+				},
+				"width":450,
+				"height":280,
+				"opacity":0.9,
+				"views":
+				[
+					{
+						"name":"overview",
+						"label":"Overview",
+						"tab":{"classnames":"hiu-tab-1"},
+						"type":"basic",
+						"attributes":
+						[
+							{"name":"Title","label":"Title"},
+							{"name":"location2","label":"Location"},
+							{"name":"Date Incident","label":"Date of Incident"},
+							{"type":"int","name":"Fatalities (Combatants)","label":"Fatalities (Combatants)"},
+							{"type":"int","name":"Fatalities (Non-Combatants)","label":"Fatalities (Non-Combatants)"}
+						]	
+					},
+					{
+						"name":"description",
+						"label":"Description",
+						"tab":{"classnames":"hiu-tab-1"},
+						"type":"basic",
+						"attributes":
+						[
+							{"name":"sCategories","label":"Categories"},
+							{"name":"Description","label":"Description"}
+						]	
+					},
+					{
+						"name":"source",
+						"label":"Source",
+						"tab":{"classnames":"hiu-tab-1"},
+						"type":"basic",
+						"attributes":
+						[
+							{"name":"Date Published","label":"Date Published"},
+							{"name":"Source URL","label":"Source URL"}
+						]	
+					},
+					{
+						"name":"location",
+						"label":"Location",
+						"tab":{"classnames":"hiu-tab-1"},
+						"type":"basic",
+						"attributes":
+						[
+							{"name":"location2","label":"Location"},
+							{"label":"Latitude","type":"latitude"},
+							{"label":"Longitude","type":"longitude"}
+						]	
+					},
+					{
+						"name":"links",
+						"label":"Links",
+						"tab":{"classnames":"hiu-tab-1"},
+						"type":"basic",
+						"attributes":
+						[
+							{"label":"Google Maps","type":"app","app":"google"},
+							{"label":"OpenStreetMap","type":"app","app":"osm"}
+						]	
+					}
+				]
+			},
+			"classifications":
+			[
+				{
+					"type":"single",
+					"field": "wheel",
+					"value":"on",
+					"style":
+					{
+						"display": "none"
+					}
+				}
+			],
+			"boxes":
+			{
+				"basic":
+				{
+					"title":"Fatalities",
+					"tasks":
+					[
+						{"op":"sum","output":"sum_combatants","input":"Fatalities (Combatants)"},
+						{"op":"sum","output":"sum_noncombatants","input":"Fatalities (Non-Combatants)"}
+					],
+					"fields":
+					[
+						{"name":"sum_combatants","label":"Combatants"},
+						{"name":"sum_noncombatants","label":"Non-Combatants"}
+					]
+				}
+			}
+		}
+	}
+}
