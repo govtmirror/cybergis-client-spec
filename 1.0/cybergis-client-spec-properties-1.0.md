@@ -56,6 +56,15 @@ Example
 
 The name property is a string.  It specifies the name of the CyberGIS client application.  The name is used for the page headers, about dialog, and other ways on the page.
 
+Cascading
+
+| Order | Type | Property 1 | Property 2 | Property 3 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | Query String | n | name |
+| 2 | DOM |
+| 3 | File | name |
+| 4 | Fallback |
+
 Example
 
 `"name":"Demo"`
