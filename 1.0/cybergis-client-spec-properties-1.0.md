@@ -154,7 +154,9 @@ The zoom property is an integer.  It specifies the default zoom level of the app
 
 The minZoom property is an integer.  It specifies the minimum zoom level for the application.  It is most frequently 0.
 
-Example
+**Fallback**: 0
+
+**Example**
 
 `"minZoom":0`
 
@@ -162,7 +164,9 @@ Example
 
 The maxZoom property is an integer.  It specifies the maximum zoom level for the application.  It is most frequently 18.
 
-Example
+**Fallback**: Length of [Resolutions](#resolutions) - 1
+
+**Example**
 
 `"maxZoom":18`
 
@@ -170,7 +174,7 @@ Example
 
 The resolutions property is an array of floats.  It specifies the resolutions for each zoom level.  This array almost always contains the resolutions for each level of an EPSG:900913 TMS service.
 
-Example
+**Example**
 
 `"resolutions":[156543.03390625,78271.516953125,39135.7584765625,19567.87923828125,9783.939619140625,4891.9698095703125,2445.9849047851562,1222.9924523925781,611.4962261962891,305.74811309814453,152.87405654907226,76.43702827453613,38.218514137268066,19.109257068634033,9.554628534317017,4.777314267158508,2.388657133579254,1.194328566789627,0.5971642833948135]`
 
