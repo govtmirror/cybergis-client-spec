@@ -3,11 +3,17 @@ CyberGIS Client Specification, Version 1.0
 
 ## Specifications
 
+### Required
+
 - [Properties, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md)
 
 - [Proto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md)
 
 - [Carto, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md)
+
+### Optional
+
+- [Glossary, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md)
 
  
 ## Examples
