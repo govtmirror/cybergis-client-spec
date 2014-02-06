@@ -52,7 +52,7 @@ The layer prototype file includes a map of layer identifiers to layer prototypes
 
 ### Properties
 
-**General**: [Name](#name), [Classification](#classification), [Description](#description), [Type](#type), [Projection](#projection), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [URL](#url),  [Select](#select)
+**General**: [Name](#name), [Classification](#classification), [Description](#description-1), [Type](#type), [Projection](#projection), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [URL](#url),  [Select](#select)
 
 **MapBox**: [Layer Name](#layer-name)
 
