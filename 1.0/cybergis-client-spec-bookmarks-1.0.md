@@ -9,7 +9,7 @@ A bookmarks file describes spatiotemporal bookmarks. The bookmarks file usually 
 
 A bookmarks file is generally a tab delimited TSV file.  However, it can be delimited in a variety of ways.  The delimiter is set in the properties file.
 
-A boookmarks file can contain two types of bookmarks: location and feature
+A boookmarks file can contain two types of bookmarks: location and feature.
 
 ### Location Bookmarks
 
