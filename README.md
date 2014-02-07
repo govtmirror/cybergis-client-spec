@@ -29,39 +29,40 @@ The usual cascading order is:
 
 4.  Fallback
 
-## Files
+## Specifications
 
-### Properties
+### [Properties](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md)
 
 The properties file is used to configue which layers and controls to show on the map.  The properties file also contains pointers to shared external resources that are not specific to individual layers, such as P-Codes, Glossaries, Bookmarks, etc. 
 
-### Proto
+### [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md)
 
 The layer prototype file (or protolayer file or proto file) links layer identifiers with (1) metadata and (2) strategy/protocol information for loading layers.
 
-### Carto
+### [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md)
 
 The cartography file (or carto file) describes the cartography for each layer.  Additionally, the carto file describes the visual representation of a layer within a chart and box.  Generally speaking, any visualization of a layer is described in the carto file.
 
-### Bookmarks
+### [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md)
 
 A bookmarks file describes spatiotemporal bookmarks.  The bookmarks file usually contains the highest interest features or locations.
 
-### Glossary
+### [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md)
 
 A glossary file describes a glossary of terms and definition.  Generally speaking, this information is not used within the map, but used elsewhere in application to help users understand vague or unknown terms.
 
-## Specification
+## Versions
 
-### [CyberGIS Client, Version 1.0](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/)
+| Version | Purpose |
+| ---- | ---- |
+| 1.0 | Stable |
+| 1.1 | Development |
+| N | Nightly |
 
-Stable version
-
-### [1.1](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.1/)
-
-Development version
-
-Coming soon!
+| Version | Client | Properties | Proto | Carto | JIT | Glossaries | Bookmarks |
+| ---- |  ---- |  ---- |  ---- |  ---- |  ---- |   ---- |   ---- |
+| 1.0 | [Client](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/README.md) | [Properties](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md) | [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md) | [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md) | [JIT](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-jit-1.0.md) | [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md) | [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md) |
+| 1.1 | [Client](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/README.md) | [Properties](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md) | [Proto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md) | [Carto](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md) | [JIT](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-jit-1.0.md) | [Glossaries](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md) | [Bookmarks](https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md) |
 
 ## Usage
 
