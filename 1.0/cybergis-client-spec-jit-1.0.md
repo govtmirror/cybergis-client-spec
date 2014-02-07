@@ -98,7 +98,7 @@ The remote property is an object.  It specifies how to load the resource for a j
 
 **Numeric**:
 
-**String**: [Concat](#task-concat), [Split](#task-split)
+**String**: [Concat](#task-concat), [Split](#task-split), [Parse](#task-parse)
 
 **Array**: [Count](#task-count), [Grep](#task-grep), [Join](#task-join)
 
@@ -124,6 +124,17 @@ The split task splits a string into an array of strings.
 {"op":"split","output":"bar","input":"foo","delimiter":","}
 ```
 Given a feature with the following attributes `{"id":1,"foo":"a,b,c"}`, after the task executes the attributes will be `{"id":1,"foo":"a,b,c","bar":["a","b","c"]}`.
+
+#### Task: Parse
+
+The parse task parses a string into an integer or float.
+
+**Example**
+
+```JSON
+{"op":"parse","output":"bar","input":"foo","type":"int"}
+```
+Given a feature with the following attributes `{"id":1,"foo":"10"}`, after the task executes the attributes will be `{"id":1,"foo":"10","bar":10}`.
 
 #### Task: Count
 
