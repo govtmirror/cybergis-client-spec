@@ -9,13 +9,41 @@ The just-in-time specification is used for specifying just-in-time compiliation 
 
 ### Properties
 
+**General**: [Type](#type), [Refresh](#refresh), [Tasks](#tasks)
+
+**Advanced**:  [Remote](#remote)
+
 #### Type
+
+The type property is a string.  It specifies the type of a just-in-time compilation for the layer.  Simple just-in-time compilation executes immediately after the layer loads its data.  Advanced just-in-time compilation uses data from a shared data source or performs another asynchronous request to get the secondary data.  Either way, the execution order is maintained as it re-exectutes all jobs on load of any resource.
+
+**Options**
+
+| Type | Alias 1 | 
+| ---- | ---- |
+| Simple | simple |
+| Advanced | advanced |
+
+Examples
+
+- `"type":"simple"`
+- `"type":"advanced"`
 
 #### Refresh
 
-#### Remote
+#### Type
+
+The refresh property is an object.  It specifies when to execute just-in-time compilation for a layer.  Just-in-time compilation can happen when a layer loads its initial data and when a feature is focused (read: selected).
+
+**Example**
+
+```JSON
+"refresh":{"init":true,"focus":false}
+```
 
 #### Tasks
+
+#### Remote
 
 ### Related Specifications
 
