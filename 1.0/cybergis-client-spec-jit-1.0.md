@@ -8,6 +8,18 @@ Just-in-Time Specification, Version 1.0
 
 The just-in-time specification is used for specifying just-in-time compiliation of layers.
 
+**Functional Paradigm**
+
+The just-in-time specification has been developed using a functional programming paradigm, as opposed to an object-oriented paradigm.  Most other specifications have been developed using a object-oriented paradigm.  See http://en.wikipedia.org/wiki/Functional_programming and http://en.wikipedia.org/wiki/Programming_paradigm for more information.  Therefore, jobs and tasks are always executed in the order they are specified.
+
+**Jobs**
+
+Just-in-time compilation for a layer is broken down into jobs.  Each job specifies if and how to load the relevant data and how to compile it once it is loaded.  Each job contains a list of tasks, represented as an array of objects, that will execute whenever the job's data is loaded.  Jobs will always be execute in the order they appear in the array.
+
+**Tasks**
+
+Tasks are discrete programmatic commands to execute in order once data is loaded.  Tasks will always execute in order that they appear in the array.
+
 ## Specifications
 
 ### Properties
@@ -44,7 +56,7 @@ The refresh property is an object.  It specifies when to execute just-in-time co
 
 #### Tasks
 
-The tasks property is an object.  It specifies a list of tasks for each jit job.
+The tasks property is an array of objects.  It specifies a list of tasks for each jit job.
 
 **Example**
 
