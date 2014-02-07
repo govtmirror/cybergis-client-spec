@@ -10,7 +10,7 @@ The just-in-time specification is used for specifying just-in-time compiliation 
 
 **Just-in-Time**
 
-Just-in-time (JIT) compilation, also known as dynamic translation, in the general programming concept that source code is compiled into machine code at run time.  Although the concept cannot be ported entirely to web mapping applications, much of the functionality is maintained.  In regards to the CyberGIS, JIT refernces the "compilation" of "resources" into "features".  These resources includes a layer's standard data retrived from OGC services, but can also include shared resources (resources shared across layers) and remote resources (resources treated as unique for each layer).
+Just-in-time (JIT) compilation, also known as dynamic translation, in the general programming concept that source code is compiled into machine code at run time.  Although the concept cannot be ported entirely to web mapping applications, much of the functionality is maintained.  In regards to the CyberGIS, JIT references the "compilation" of "resources" into "features".  These resources includes a layer's standard data retrived from OGC services, but can also include shared resources (resources shared across layers) and remote resources (resources treated as unique for each layer).
 
 **Functional Paradigm**
 
