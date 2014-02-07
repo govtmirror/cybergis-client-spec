@@ -34,8 +34,6 @@ Examples
 
 #### Refresh
 
-#### Type
-
 The refresh property is an object.  It specifies when to execute just-in-time compilation for a layer.  Just-in-time compilation can happen when a layer loads its initial data and when a feature is focused (read: selected).
 
 **Example**
@@ -45,6 +43,23 @@ The refresh property is an object.  It specifies when to execute just-in-time co
 ```
 
 #### Tasks
+
+The tasks property is an object.  It specifies a list of tasks for each jit job.
+
+**Example**
+
+```JSON
+"tasks":
+[
+	{"op":"concat","output":"location","input":["${City}",", ","${State}"]},
+	{"op":"concat","output":"title","input":["${name}"," (","Incident",")"]},
+			
+	{"op":"strip_fields","fields":["Description","Title","SubCity"],"characters":" '\t\n\""},
+			
+	{"op":"split","output":"categories_2","input":"categories","delimiter":","},
+	{"op":"grep","output":"categories_3","input":"categories_2","values":["Extrajudicial Killing"],"keep":false}
+]
+```
 
 #### Remote
 
