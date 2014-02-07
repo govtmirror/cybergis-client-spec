@@ -100,7 +100,7 @@ The remote property is an object.  It specifies how to load the resource for a j
 
 **String**: [Concat](#task-concat), [Split](#task-split)
 
-**Array**: [Count](#task-count), [Grep](#task-grep)
+**Array**: [Count](#task-count), [Grep](#task-grep), [Join](#task-join)
 
 
 #### Task: Concat
@@ -146,6 +146,17 @@ The grep task filters an array using an exclusion or inclusion filter.
 {"op":"grep","output":"bar","input":"foo","values":["b"],"keep":false}
 ```
 Given a feature with the following attributes `{"id":1,"foo":["a","b","c"]}`, after the task executes the attributes will be `{"id":1,"foo":["a","b","c"],"bar":["a","c"]}`.
+
+#### Task: Join
+
+The join task joins an array of strings into a string using a specified delimiter.
+
+**Example**
+
+```JSON
+{"op":"join","output":"bar","input":"foo","delimiter":", "}
+```
+Given a feature with the following attributes `{"id":1,"foo":["a","b","c"]}`, after the task executes the attributes will be `{"id":1,"foo":["a","b","c"],"bar":"a, b, c"}`.
 
 ## Examples
 
