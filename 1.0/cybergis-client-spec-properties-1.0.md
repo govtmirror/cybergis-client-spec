@@ -339,8 +339,8 @@ The feature layers property is an array of strings that specifies which layers t
 | Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
 | ---- | ---- | ---- | ---- | ---- |  ---- |
 | 1 | Query String | fl | featureLayer | featureLayers | layers |
-| 2 | DOM | mapFeatureLayers | featureLayers
-| 3 | File | featureLayers |
+| 2 | DOM | mapFeatureLayers | mapFeatureLayer | featureLayers | featureLayer |
+| 3 | File | featureLayers | featureLayer |
 
 **Example**
 
