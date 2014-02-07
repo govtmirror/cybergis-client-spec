@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="cybergis-client-spec : This repository contains specifications for CyberGIS clients." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>cybergis-client-spec</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/state-hiu/cybergis-client-spec">View on GitHub</a>
+
+          <h1 id="project_title">cybergis-client-spec</h1>
+          <h2 id="project_tagline">This repository contains specifications for CyberGIS clients.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/state-hiu/cybergis-client-spec/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/state-hiu/cybergis-client-spec/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="cybergis-client-spec" class="anchor" href="#cybergis-client-spec"><span class="octicon octicon-link"></span></a>cybergis-client-spec</h1>
+
+<table>
+<thead><tr>
+<th>Specifications:</th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/README.md">Client</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-properties-1.0.md">Properties</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-proto-1.0.md">Proto</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-carto-1.0.md">Carto</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-jit-1.0.md">JIT</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-glossary-1.0.md">Glossaries</a></th>
+<th><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/cybergis-client-spec-bookmarks-1.0.md">Bookmarks</a></th>
+</tr></thead>
+<tbody></tbody>
+</table><h2>
+<a name="cybergis" class="anchor" href="#cybergis"><span class="octicon octicon-link"></span></a>CyberGIS</h2>
+
+<p>The Humanitarian Information Unit has been developing a sophisticated geographic computing infrastructure referred to as the CyberGIS. The CyberGIS provides highly available, scalable, reliable, and timely geospatial services capable of supporting multiple concurrent projects.  The CyberGIS relies on primarily open source projects, such as PostGIS, GeoServer, GDAL, OGR, and OpenLayers.  The name CyberGIS is dervied from the term geospatial cyberinfrastructure.</p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This repository contains specifications for CyberGIS client applications.  These specifications are currently only implemented for OpenLayers 2.13.</p>
+
+<p>CyberGIS Client applications are configured using three files: <a href="#properties">a properties file</a>, <a href="#proto">a layer prototype file (proto file)</a>, and <a href="#carto">a cartography file (carto file)</a>.  A CyberGIS client application may also use a few optional files: 0 or 1 <a href="#bookmarks">bookmarks files</a>, 0 or more <a href="#glossary">glossary files</a>, etc.  The specifications for each of these files should be compatabile for each version number.</p>
+
+<h3>
+<a name="cascading" class="anchor" href="#cascading"><span class="octicon octicon-link"></span></a>Cascading</h3>
+
+<p>A general design principal for the CyberGIS clients is cascading.  Many configuration options can be specifed in multiple locations.  For example, the option to decide which non-basemap layers to display (featureLayers), can be specified as a query string parameter, in the HTML document as a HTML5 data attribute, or in the properties file.  Additionally, many options can be specified using different identifiers.  For example, the baselayers can be specified using baselayer or baselayers.  The initialization routing also attempts to infer good fallback values.  The initialization routing also detects and autocorrects conflicting configuration values, such as setting the center outside the max extent.</p>
+
+<p>Although the initialization routine can't compete with the simpliest of hard-coded leaflet maps in startup time, through cascading it is possible to configure a feature rich CyberGIS client application with the literal bare-minimum customization that is required.</p>
+
+<p>The usual cascading order is:</p>
+
+<ol>
+<li><p>Query String parameter</p></li>
+<li><p>HTML5 Data Attribute</p></li>
+<li><p>Properties File</p></li>
+<li><p>Fallback</p></li>
+</ol><h2>
+<a name="files" class="anchor" href="#files"><span class="octicon octicon-link"></span></a>Files</h2>
+
+<h3>
+<a name="properties" class="anchor" href="#properties"><span class="octicon octicon-link"></span></a>Properties</h3>
+
+<p>The properties file is used to configue which layers and controls to show on the map.  The properties file also contains pointers to shared external resources that are not specific to individual layers, such as P-Codes, Glossaries, Bookmarks, etc. </p>
+
+<h3>
+<a name="proto" class="anchor" href="#proto"><span class="octicon octicon-link"></span></a>Proto</h3>
+
+<p>The layer prototype file (or protolayer file or proto file) links layer identifiers with (1) metadata and (2) strategy/protocol information for loading layers.</p>
+
+<h3>
+<a name="carto" class="anchor" href="#carto"><span class="octicon octicon-link"></span></a>Carto</h3>
+
+<p>The cartography file (or carto file) describes the cartography for each layer.  Additionally, the carto file describes the visual representation of a layer within a chart and box.  Generally speaking, any visualization of a layer is described in the carto file.</p>
+
+<h3>
+<a name="bookmarks" class="anchor" href="#bookmarks"><span class="octicon octicon-link"></span></a>Bookmarks</h3>
+
+<p>A bookmarks file describes spatiotemporal bookmarks.  The bookmarks file usually contains the highest interest features or locations.</p>
+
+<h3>
+<a name="glossary" class="anchor" href="#glossary"><span class="octicon octicon-link"></span></a>Glossary</h3>
+
+<p>A glossary file describes a glossary of terms and definition.  Generally speaking, this information is not used within the map, but used elsewhere in application to help users understand vague or unknown terms.</p>
+
+<h2>
+<a name="specification" class="anchor" href="#specification"><span class="octicon octicon-link"></span></a>Specification</h2>
+
+<h3>
+<a name="cybergis-client-version-10" class="anchor" href="#cybergis-client-version-10"><span class="octicon octicon-link"></span></a><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.0/">CyberGIS Client, Version 1.0</a>
+</h3>
+
+<p>Stable version</p>
+
+<h3>
+<a name="11" class="anchor" href="#11"><span class="octicon octicon-link"></span></a><a href="https://github.com/state-hiu/cybergis-client-spec/blob/master/1.1/">1.1</a>
+</h3>
+
+<p>Development version</p>
+
+<p>Coming soon!</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Use these specifications to configure new CyberGIS clients.</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>HIU is currently not accepting pull requests for this repository.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This project constitutes a work of the United States Government and is not subject to domestic copyright protection under 17 USC § 105.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">cybergis-client-spec maintained by <a href="https://github.com/state-hiu">state-hiu</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
