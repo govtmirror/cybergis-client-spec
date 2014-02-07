@@ -10,15 +10,15 @@ The just-in-time specification is used for specifying just-in-time compiliation 
 
 **Just-in-Time**
 
-Just-in-time (JIT) compilation, also known as dynamic translation, in the general programming concept that source code is compiled into machine code at run time.  Although the concept cannot be ported entirely to web mapping applications, much of the functionality is maintained.  In regards to the CyberGIS, JIT references the "compilation" of "resources" into "features".  These resources includes a layer's standard data retrived from OGC services, but can also include shared resources (resources shared across layers) and remote resources (resources treated as unique for each layer).
+Just-in-time (JIT) compilation, also known as dynamic translation, in the general programming concept that source code is compiled into machine code at run time.  Although the concept cannot be ported entirely to web mapping applications, much of the functionality is maintained.  In regards to the CyberGIS, JIT references the _compilation_ of _resources_ into _features_.  These resources includes a layer's standard data retrived from OGC services, but can also include shared resources (resources shared across layers) and remote resources (resources treated as unique for each layer).
 
 **Functional Paradigm**
 
-The just-in-time specification has been developed using a functional programming paradigm, as opposed to an object-oriented paradigm.  Most other specifications have been developed using a object-oriented paradigm.  See http://en.wikipedia.org/wiki/Functional_programming and http://en.wikipedia.org/wiki/Programming_paradigm for more information.  Therefore, jobs and tasks are always executed in the order they are specified.
+The just-in-time specification has been developed using a functional programming paradigm, as opposed to an object-oriented paradigm.  Most other CyberGIS specifications have been developed using a object-oriented paradigm.  See http://en.wikipedia.org/wiki/Functional_programming and http://en.wikipedia.org/wiki/Programming_paradigm for more information.  Therefore, jobs and tasks are always executed in the order they are specified.
 
 **Jobs**
 
-Just-in-time compilation for a layer is broken down into jobs.  Each job specifies if and how to load the relevant data and how to compile it once it is loaded.  Each job contains a list of tasks, represented as an array of objects, that will execute whenever the job's data is loaded.  Jobs will always be execute in the order they appear in the array.
+Just-in-time compilation for a layer is broken down into jobs.  Each job may specify a resource and how to compile it once the resource's data has been loaded.  Each job contains a list of tasks, represented as an array of objects, that will execute whenever the job's data is loaded.  If a job doesn't specify a resource, the tasks will execute whenever the layer's main data is loaded.  Jobs will always be execute in the order they appear in the array.
 
 **Tasks**
 
