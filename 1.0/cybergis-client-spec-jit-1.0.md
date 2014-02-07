@@ -26,13 +26,16 @@ Jobs are furthermore broken down into tasks.  Tasks are discrete programmatic co
 
 ## Specifications
 
+| Sections: | [Properties](#properties) | [Tasks](#tasks) | 
+| ---- |  ---- |  ---- |
+
 ### Properties
 
 **General**: [Type](#type), [Refresh](#refresh), [Tasks](#tasks)
 
 **Advanced**:  [Remote](#remote)
 
-#### Type
+#### Property: Type
 
 The type property is a string.  It specifies the type of a just-in-time compilation for the layer.  Simple just-in-time compilation executes immediately after the layer loads its data.  Advanced just-in-time compilation uses data from a shared data source or performs another asynchronous request to get the secondary data.  Either way, the execution order is maintained as it re-exectutes all jobs on load of any resource.
 
@@ -48,7 +51,7 @@ Examples
 - `"type":"simple"`
 - `"type":"advanced"`
 
-#### Refresh
+#### Property: Refresh
 
 The refresh property is an object.  It specifies when to execute just-in-time compilation for a layer.  Just-in-time compilation can happen when a layer loads its initial data and when a feature is focused (read: selected).
 
@@ -58,7 +61,7 @@ The refresh property is an object.  It specifies when to execute just-in-time co
 "refresh":{"init":true,"focus":false}
 ```
 
-#### Tasks
+#### Property: Tasks
 
 The tasks property is an array of objects.  It specifies a list of tasks for each jit job.
 
@@ -77,7 +80,7 @@ The tasks property is an array of objects.  It specifies a list of tasks for eac
 ]
 ```
 
-#### Remote
+#### Property: Remote
 
 The remote property is an object.  It specifies how to load the resource for a job.  The object specifies how to retrieve the data (from a shared resource or remote resource) and how to merge the data with the layer's main data.
 
@@ -90,6 +93,59 @@ The remote property is an object.  It specifies how to load the resource for a j
 	"source":"articles"
 }
 ```
+
+### Tasks
+
+**Numeric**:
+
+**String**: [Concat](#task-concat), [Split](#task-split)
+
+**Array**: [Count](#task-count), [Grep](#task-grep)
+
+
+#### Task: Concat
+
+The concat task concatenates an array of strings.  The input array can contain literals and references to attributes.  References to arributes are specified as "${attribute}".
+
+**Example**
+
+```JSON
+{"op":"concat","output":"name2","input":["${name}"," - ","Bar"]}
+```
+Given a feature with the following attributes `{"id":1,"name":"Foo"}`, after the task executes the attributes will be `{"id":1,"name":"Foo","name2":"Foo - Bar"}`.
+
+#### Task: Split
+
+The split task splits a string into an array of strings.
+
+**Example**
+
+```JSON
+{"op":"split","output":"bar","input":"foo","delimiter":","}
+```
+Given a feature with the following attributes `{"id":1,"foo":"a,b,c"}`, after the task executes the attributes will be `{"id":1,"foo":"a,b,c","bar":["a","b","c"]}`.
+
+#### Task: Count
+
+The count task counts how many elements are in an array.  The task accepts an optional where clause.
+
+**Example**
+
+```JSON
+{"op":"count","output":"count","input":["${name}"," - ","Bar"]}
+```
+Given a feature with the following attributes `{"id":1,"name":"Foo"}`, after the task executes the attributes will be `{"id":1,"name":"Foo","name2":"Foo - Bar"}`.
+
+#### Task: Grep
+
+The grep task filters an array using an exclusion or inclusion filter.
+
+**Example**
+
+```JSON
+{"op":"grep","output":"bar","input":"foo","values":["b"],"keep":false}
+```
+Given a feature with the following attributes `{"id":1,"foo":["a","b","c"]}`, after the task executes the attributes will be `{"id":1,"foo":["a","b","c"],"bar":["a","c"]}`.
 
 ## Examples
 
