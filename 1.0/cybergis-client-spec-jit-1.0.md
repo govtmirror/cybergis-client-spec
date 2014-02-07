@@ -79,6 +79,18 @@ The tasks property is an array of objects.  It specifies a list of tasks for eac
 
 #### Remote
 
+The remote property is an object.  It specifies how to load the resource for a job.  The object specifies how to retrieve the data (from a shared resource or remote resource) and how to merge the data with the layer's main data.
+
+**Example**
+
+```JSON
+"remote":
+{
+	"join"{"left""name","right":"name","type":"single","include":"all"},
+	"source":"articles"
+}
+```
+
 ## Examples
 
 ## Contributing
