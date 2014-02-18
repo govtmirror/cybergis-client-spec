@@ -365,7 +365,7 @@ The render layers property is an array of strings that specifies which layers to
 **Example**
 
 ```JSON
-"featureLayers": ["incidents"]
+"renderLayers": ["incidents"]
 ```
 
 #### Search Layers
