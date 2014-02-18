@@ -43,6 +43,7 @@ The properties file is used to configue which layers and controls to show on the
 	
 	"baseLayers":[],
 	"featureLayers":[],
+	"renderLayers":[],
 	"searchLayers":[],
 	"legendLayers":[]
 }
@@ -51,7 +52,7 @@ The properties file is used to configue which layers and controls to show on the
 
 **General**: [Element](#element), [Name](#name), [Title](#title), [Domain](#context), [Context](#context), [Pages](#pages), [Classification](#classification), [Projection](#projection), [Zoom](#zoom), [Minimum Zoom](#minimum-zoom-minzoom), [Maximum Zoom](#maximum-zoom-maxzoom), [Resolutions](#resolutions), [Controls](#controls), [Applications](#applications-apps), [Wikis](#wikis), [Data Sources](#data-sources), [Bookmarks](#bookmarks),[Glossaries](#glossaries), [HashMaps](#hashmaps),  [P-Codes](#p-codes-pcodes),
 
-**Layers**: [Base Layers](#base-layers),  [Feature Layers](#feature-layers), [Search Layers](#search-layers),  [Legend Layers](#legend-layers),  [Box Layers](#box-layers),  [Chart Layers](#chart-layers)
+**Layers**: [Base Layers](#base-layers),  [Feature Layers](#feature-layers), [Render Layers](#render-layers), [Search Layers](#search-layers),  [Legend Layers](#legend-layers),  [Box Layers](#box-layers),  [Chart Layers](#chart-layers)
 
 #### Element
 
@@ -341,6 +342,25 @@ The feature layers property is an array of strings that specifies which layers t
 | 1 | Query String | fl | featureLayer | featureLayers | layers |
 | 2 | DOM | mapFeatureLayers | mapFeatureLayer | featureLayers | featureLayer |
 | 3 | File | featureLayers | featureLayer |
+
+**Example**
+
+```JSON
+"featureLayers": ["incidents"]
+```
+
+#### Render Layers
+
+The render layers property is an array of strings that specifies which layers to actually render.   When specified. the CyberGIS Client renders this set of layers instead of feature layers.  The primary purpose is to increase performance.  For example, you are creating a thumbnail and no a priori that a layer won't be displayed.  Then render layers can be used to shortcut the loading of that layer, but still maintain the same user interaction when clicking on the map (mainly going to the full map).
+
+**Cascading**
+
+| Order | Level | Property 1 | Property 2 | Property 3 | Property 4 |
+| ---- | ---- | ---- | ---- | ---- |  ---- |
+| 1 | Query String | rl | renderLayer | renderLayers |  |
+| 2 | DOM | mapRenderLayers | mapRenderLayer | renderLayers | renderLayer |
+| 3 | File | renderLayers | renderLayer |
+| 4 | Feature Layers |
 
 **Example**
 
